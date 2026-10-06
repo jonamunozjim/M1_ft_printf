@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 10:35:29 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 11:34:49 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/06 12:32:43 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	check_sign(int nbr)
 int	ft_putnbr(int nbr)
 {
 	int			i;
-	char		s[9];
+	char		s[10];
 	int			count;
 
 	count = check_limits (nbr);
@@ -59,6 +59,7 @@ int	ft_putnbr(int nbr)
 		nbr = nbr / 10;
 		i++;
 	}
+	i--;
 	while (i >= 0)
 	{
 		if ((write (1, &s[i], 1) < 0))
@@ -73,7 +74,7 @@ int main(void)
 {
  	int nb;
 	
-    nb = 0;
+    nb = -1;
     ft_putnbr(nb);
     return (0);
 }*/
