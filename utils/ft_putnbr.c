@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 10:35:29 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 12:32:43 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/06 13:02:40 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int main(void)
 {
  	int nb;
 	
-    nb = -1;
+    nb = 42;
     ft_putnbr(nb);
     return (0);
 }*/

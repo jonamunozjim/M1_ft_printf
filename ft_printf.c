@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 12:50:52 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 12:16:55 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/06 13:13:43 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ int ft_printf(char const *s, ...)
         if(s[i] == '%')
         {
             i++;
-            if (s[i] == 'c' || s[i] == '%')
-                n = ft_putchar(va_arg (list, int)); 
+            if (s[i] == '%')
+                n = ft_putchar('%');
+            if (s[i] == 'c')
+                n = ft_putchar(va_arg (list, int));
             else if (s[i] == 's')
                 n = ft_putstr (va_arg (list, char *));
             else if (s[i] == 'p')
@@ -56,9 +58,9 @@ int ft_printf(char const *s, ...)
             else if (s[i] == 'i' || s[i] == 'd')
                 n = ft_putnbr (va_arg (list, int));
             else if (s[i] == 'x' || s[i] == 'X')
-                n = ft_putnbr_hex (va_arg (list, unsigned long int), s[i]);
+                n = ft_putnbr_hex (va_arg (list, unsigned int), s[i]);
             else if (s[i] == 'u')
-                n = ft_putnbr_unsigned (va_arg (list, unsigned int));
+                n = ft_putnbr_unsigned (va_arg (list, unsigned int));    
             i++;
         }        
         else
