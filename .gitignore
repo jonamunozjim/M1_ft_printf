@@ -1,3 +1,5 @@
 *.Identifier
 *.out
 *.swp
+*./a.out
+tester/
