@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 10:35:29 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/05 13:41:42 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/06 11:34:49 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	check_sign(int nbr)
 int	ft_putnbr(int nbr)
 {
 	int			i;
-	char		s[10];
+	char		s[9];
 	int			count;
 
 	count = check_limits (nbr);
