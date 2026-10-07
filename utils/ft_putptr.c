@@ -3,12 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 09:59:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 12:17:09 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/07 12:00:35 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Description:
+//      Outputs a pointer's memory address to the standard output (stdout) 
+// 			in hexadecimal format.
+// 
+// Parameters:
+//      ptr: The pointer whose memory address will be printed.
+//
+// Return value:
+//      Returns the number of characters printed, or -1 if an error occurs.
 
 #include "../includes/ft_printf.h"
 

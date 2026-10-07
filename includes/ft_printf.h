@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 09:59:11 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 12:36:30 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/07 12:29:47 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	ft_putptr(void *ptr);
 int	ft_putnbr(int nbr);
 int	ft_putnbr_unsigned(unsigned int nbr);
 int	ft_printf(char const *format, ...);
-
 
 #endif

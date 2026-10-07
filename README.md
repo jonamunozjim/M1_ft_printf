@@ -54,13 +54,12 @@ To manage the variable number of arguments, the project relies exclusively on th
 # Resources
 ## Documentation and References
 - Operating system manual pages: `man 3 printf`, `man 3 stdarg`.
-- GCC compiler documentation for function attributes like `__attribute__((format(printf, 1, 2)))`.
+- Official GCC compiler rules and 42 Norm specifications (Norminette).
 
 # Artificial Intelligence Usage
 During the development of this project, AI was used as an educational support tool to:
-- Translate and interpret error logs from tools like Valgrind regarding uninitialized bytes in the `write` function.
+- Translate and interpret error logs from tools like Valgrind.
 - Understand the strict argument extraction logic of `va_arg`.
-- Discover and apply compiler validation attributes (`__attribute__`) to strictly check variadic arguments during compilation.
 
 The AI was explicitly instructed not to provide solved code, but to limit itself to explaining the underlying logic and pointing out algorithmic flaws, ensuring that all project code was written and iterated autonomously.
 

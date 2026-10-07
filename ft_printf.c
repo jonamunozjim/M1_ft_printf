@@ -3,16 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 12:50:52 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 13:13:43 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/07 12:25:28 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Description:
-//      xxxxx
-// 
+//	* ft_printf produce write output to stdout.
+// 	
+//	* It reproduce similar function than printf from libc.
+//  
+//	* ft_print does not manage buffer like printf.
+//	
+//	* The following convertions are implemented in 
+// 		this function: cspdiuxX% (check Parameters description below)
 //
 // Parameters:
 //      char *, the string to be written.
@@ -33,46 +39,53 @@
 
 #include "includes/ft_printf.h"
 
-int ft_printf(char const *s, ...)
+int	check_character(char c, va_list list)
 {
-    va_list         list;
-    int             i;
-    int             n;
-    int             count;
-    i = 0;
-    count = 0;
-    va_start(list, s);
-    while (s[i])
-    {
-        if(s[i] == '%')
-        {
-            i++;
-            if (s[i] == '%')
-                n = ft_putchar('%');
-            if (s[i] == 'c')
-                n = ft_putchar(va_arg (list, int));
-            else if (s[i] == 's')
-                n = ft_putstr (va_arg (list, char *));
-            else if (s[i] == 'p')
-                n = ft_putptr (va_arg (list, void *));
-            else if (s[i] == 'i' || s[i] == 'd')
-                n = ft_putnbr (va_arg (list, int));
-            else if (s[i] == 'x' || s[i] == 'X')
-                n = ft_putnbr_hex (va_arg (list, unsigned int), s[i]);
-            else if (s[i] == 'u')
-                n = ft_putnbr_unsigned (va_arg (list, unsigned int));    
-            i++;
-        }        
-        else
-        {
-            n = ft_putchar(s[i]);
-            i++;
-        }
-            if (n < 0)
-            return (-1);
-        else
-            count = count + n;
-    }    
-    va_end(list);
-    return (count);
+	int	n;
+
+	n = 0;
+	if (c == '%')
+		n = ft_putchar('%');
+	else if (c == 'c')
+		n = ft_putchar(va_arg (list, int));
+	else if (c == 's')
+		n = ft_putstr (va_arg (list, char *));
+	else if (c == 'p')
+		n = ft_putptr (va_arg (list, void *));
+	else if (c == 'i' || c == 'd')
+		n = ft_putnbr (va_arg (list, int));
+	else if (c == 'x' || c == 'X')
+		n = ft_putnbr_hex (va_arg (list, unsigned int), c);
+	else if (c == 'u')
+		n = ft_putnbr_unsigned (va_arg (list, unsigned int));
+	return (n);
+}
+
+int	ft_printf(char const *s, ...)
+{
+	va_list	list;
+	int		i;
+	int		n;
+	int		count;
+
+	if (!s)
+		return (-1);
+	i = 0;
+	count = 0;
+	va_start(list, s);
+	while (s[i])
+	{
+		if (s[i] == '%')
+		{
+			i++;
+			n = check_character(s[i], list);
+		}
+		else
+			n = ft_putchar(s[i]);
+		i++;
+		if (n < 0)
+			return (-1);
+		count = count + n;
+	}
+	return (va_end(list), count);
 }

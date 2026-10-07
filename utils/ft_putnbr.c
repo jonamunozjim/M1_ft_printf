@@ -3,12 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 10:35:29 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/06 13:02:40 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/07 11:58:04 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Description:
+// 		Output an integer to the standard output (stdout).
+// 
+// Parameters:
+// 		nbr, int to be converted
+//
+// Return value:
+// 		Returns the number of characters printed, or -1 if an error occurs.
 
 #include "../includes/ft_printf.h"
 
@@ -27,6 +36,18 @@ static int	check_limits(int nbr)
 		return (1);
 	}
 	return (0);
+}
+
+static int	put_array(int i, int count, char *s)
+{
+	while (i >= 0)
+	{
+		if ((write (1, &s[i], 1) < 0))
+			return (-1);
+		count++;
+		i--;
+	}
+	return (count);
 }
 
 static int	check_sign(int nbr)
@@ -60,14 +81,7 @@ int	ft_putnbr(int nbr)
 		i++;
 	}
 	i--;
-	while (i >= 0)
-	{
-		if ((write (1, &s[i], 1) < 0))
-			return (-1);
-		count++;
-		i--;
-	}
-	return (count);
+	return (put_array (i, count, s));
 }
 /*
 int main(void)
